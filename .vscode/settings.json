@@ -1,0 +1,5 @@
+{
+  "cSpell.words": [],
+  "i18n-ally.localesPaths": ["locales"],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}
