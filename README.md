@@ -1,41 +1,92 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Project Architecture
+
+### API Layer
+
+The application follows the Repository Pattern for API interactions, providing a clean separation between the data access logic and business logic. This pattern helps in:
+
+- Centralizing data access logic
+- Making the code more maintainable and testable
+- Providing a consistent interface for data operations
+
+### Naming Conventions
+
+The project follows strict naming conventions to maintain consistency and clarity:
+
+#### Pages
+
+- Files: `[name].page.tsx`
+- Example: `dashboard.page.tsx`, `transactions.page.tsx`
+
+#### Components
+
+- Files: `[name].component.tsx`
+- Example: `header.component.tsx`, `transaction-list.component.tsx`
+
+#### Hooks
+
+- Files: `[name].hook.ts`
+- Example: `use-auth.hook.ts`, `use-transactions.hook.ts`
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The application will be available at `http://localhost:3000`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `pnpm dev` - Start development server
+- `pnpm build` - Build the application for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+- `pnpm lint:fix` - Fix ESLint issues automatically
 
-## Learn More
+## Running E2E Tests
 
-To learn more about Next.js, take a look at the following resources:
+The project uses Cypress for end-to-end testing. To run the tests:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Start the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+pnpm dev
+```
 
-## Deploy on Vercel
+2. In a new terminal, run Cypress:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm cypress open
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Or run tests headlessly:
 
+```bash
+pnpm cypress run
+```
+
+The E2E tests are located in the `cypress/e2e` directory.
+
+## Project Structure
+
+- `/src` - Source code
+- `/api` - API layer and repositories
+- `/components` - React components
+- `/hooks` - Custom React hooks
+- `/pages` - Next.js pages
+- `/utils` - Utility functions
+- `/types` - TypeScript type definitions
+- `/constants` - Application constants
+- `/public` - Static assets
+- `/cypress` - E2E tests
+- `/locales` - Internationalization files
+- `/.next` - Next.js build output
+- `/node_modules` - Dependencies
