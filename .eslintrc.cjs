@@ -45,7 +45,7 @@ module.exports = {
     "import/no-named-as-default": "off",
     "jsx-a11y/control-has-associated-label": "off",
     "react/jsx-props-no-spreading": "off",
-
+    "react/jsx-no-constructed-context-values": "off",
     "no-unused-vars": 0,
     "@typescript-eslint/no-unused-vars": [
       1,

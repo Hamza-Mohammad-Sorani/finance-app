@@ -1,36 +1,43 @@
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import React from 'react';
+import cardApi from '@apis/card/card.api';
+import { ICard } from '@apis/card/card.type';
+import expenseApi from '@apis/expense/expense.api';
+import { IExpense } from '@apis/expense/expense.type';
+import SEO from '@components/common/seo/seo.component';
+import HomeContent from '@components/pages-components/home/components/home-content.component';
 
-import { Box, Button, Container, Typography } from "@mui/material";
+// ----------------------------------------------------------------------
 
-export default function Home() {
-  const { t } = useTranslation("common");
-  const router = useRouter();
+type Props = {
+  cards: ICard[];
+  expenses: IExpense[];
+};
 
-  const toggleLanguage = () => {
-    const newLocale = router.locale === "en" ? "ar" : "en";
-    router.push(router.pathname, router.asPath, { locale: newLocale });
-  };
+// ----------------------------------------------------------------------
 
+export default function HomePage({ cards, expenses }: Props) {
   return (
-    <Container maxWidth="lg">
-      <Box sx={{ my: 4, textAlign: "center" }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          {t("welcome")}
-        </Typography>
-        <Button variant="contained" onClick={toggleLanguage}>
-          {t("switchLanguage")}
-        </Button>
-      </Box>
-    </Container>
+    <>
+      <SEO
+        title="Dashboard - Finance App"
+        description="Transform your financial management with our Dashboard Finance App! Easily track expenses,  and visualize your financial health in real-time. With intuitive features and secure data handling, take control of your finances today. Perfect for budgeting, expense tracking, and achieving your financial goals."
+      />
+      <HomeContent cards={cards} expenses={expenses} />
+    </>
   );
 }
 
-export async function getStaticProps({ locale }: { locale: string }) {
+// ----------------------------------------------------------------------
+
+export async function getStaticProps() {
+  const { cards } = await cardApi.getAll();
+  const { expenses } = await expenseApi.getAll();
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      cards,
+      expenses,
     },
+    revalidate: 60,
   };
 }

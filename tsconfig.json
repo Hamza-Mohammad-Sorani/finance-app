@@ -24,38 +24,15 @@
       "@pages/*": ["pages/*"],
       "@hooks/*": ["hooks/*"],
       "@layout/*": ["layout/*"],
-      "@interfaces/*": ["interfaces/*"],
+      "@types/*": ["types/*"],
       "@constants/*": ["constants/*"],
-      "@api/*": ["../submodules/arachnohealth-api-react/*"],
       "@utils/*": ["utils/*"],
-      "@zustand/*": ["zustand/*"],
-      "@context/*": ["context/*"],
+      "@contexts/*": ["contexts/*"],
       "@theme/*": ["theme/*"],
-      "@libs/*": ["libs/*"],
-      "@arachnoComponents/*": ["../submodules/arachnohealthbasecomponents/*"],
-      "@arachnoCalendar/*": ["../submodules/arachno-calendar/*"],
-      "@base-components-constant": ["base-components-constant"],
-      "@user-api": ["../submodules/arachnohealth-api-react/user/user.api"],
-      "@api-instance": ["arachnoit-api.instance"],
-      "@arachnoit-api.instance": ["arachnoit-api.instance"],
-      "@generic-api.instance": ["arachnoit-api.instance"],
-      "@route-names": ["route-names"]
+      "@apis/*": ["apis/*"],
+      "@api-instance": ["apis/api-instance"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "src/apis/post/post.interface.ts",
-    "src/components/common/cards-components/card-button/card-button.component.tsx",
-    "src/apis/questions/questions.interface.ts",
-    "src/components/common/data-lists/data-lists.ts",
-    "src/scripts/generate-controller-actions.script.js",
-    "submodules/arachnohealth-api-react/id-who-int/access-token/.api.ts",
-    "src/pages/features/[id].pagetsx",
-    "i18n.js",
-    "submodules/arachnohealth-api-react/scripts/generate-controller.script.js"
-  ],
-  "exclude": ["node_modules", ".next", "arachnoitdeployedwebsite"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next"]
 }
