@@ -33,6 +33,7 @@ function CardDialogs() {
             variant="contained"
             color="error"
             onClick={() => handleDeleteCard()}
+            data-cy="confirm-delete"
           >
             {t('delete')}
           </Button>
@@ -49,6 +50,7 @@ function CardDialogs() {
             variant="contained"
             color="error"
             onClick={handleDeactivateCard}
+            data-cy="confirm-deactivate"
           >
             {t('deactivate')}
           </Button>
@@ -61,7 +63,11 @@ function CardDialogs() {
         title={t('activateCard')}
         content={t('activateCardConfirmation')}
         action={
-          <Button variant="contained" onClick={handleActivateCard}>
+          <Button
+            variant="contained"
+            onClick={handleActivateCard}
+            data-cy="confirm-activate"
+          >
             {t('activate')}
           </Button>
         }

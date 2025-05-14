@@ -64,7 +64,7 @@ function ExpensesDesktopView() {
         <TableBody>
           {paginatedExpenses.length > 0 ? (
             paginatedExpenses.map(expense => (
-              <TableRow key={expense.id}>
+              <TableRow key={expense.id} data-cy="expense-item">
                 <TableCell>
                   {new Date(expense.createdAt).toLocaleDateString(
                     lang === 'ar' ? 'ar-SA' : 'en-US',
@@ -91,6 +91,7 @@ function ExpensesDesktopView() {
                           <IconButton
                             size="small"
                             onClick={() => setApproveDialog(expense.id)}
+                            data-cy="approve-expense"
                           >
                             <CheckCircleIcon />
                           </IconButton>
@@ -99,6 +100,7 @@ function ExpensesDesktopView() {
                           <IconButton
                             size="small"
                             onClick={() => setRejectDialog(expense.id)}
+                            data-cy="reject-expense"
                           >
                             <CancelIcon />
                           </IconButton>
@@ -109,6 +111,7 @@ function ExpensesDesktopView() {
                       <IconButton
                         size="small"
                         onClick={() => dispatchEditing(expense)}
+                        data-cy="edit-expense"
                       >
                         <EditIcon />
                       </IconButton>
@@ -117,6 +120,7 @@ function ExpensesDesktopView() {
                       <IconButton
                         size="small"
                         onClick={() => dispatchDeleting(expense.id)}
+                        data-cy="delete-expense"
                       >
                         <DeleteIcon />
                       </IconButton>

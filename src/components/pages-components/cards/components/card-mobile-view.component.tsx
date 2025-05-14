@@ -46,6 +46,7 @@ function CardsMobileView() {
         paginatedCards.map(card => (
           <Grid
             key={card.id}
+            data-cy="card-item"
             size={{
               xs: 12,
             }}
@@ -75,6 +76,7 @@ function CardsMobileView() {
                       size="small"
                       onClick={() => dispatchEditing(card)}
                       aria-label="edit"
+                      data-cy="edit-card"
                     >
                       <EditIcon />
                     </IconButton>
@@ -82,6 +84,7 @@ function CardsMobileView() {
                       size="small"
                       onClick={() => dispatchDeleting(card.id)}
                       aria-label="delete"
+                      data-cy="delete-card"
                     >
                       <DeleteIcon />
                     </IconButton>
@@ -90,6 +93,11 @@ function CardsMobileView() {
                       onClick={() => handleStatusToggle(card)}
                       aria-label="toggle status"
                       color={card.status === 'Active' ? 'success' : 'default'}
+                      data-cy={
+                        card.status === 'Active'
+                          ? 'deactivate-card'
+                          : 'activate-card'
+                      }
                     >
                       {card.status === 'Active' ? (
                         <ToggleOffIcon />

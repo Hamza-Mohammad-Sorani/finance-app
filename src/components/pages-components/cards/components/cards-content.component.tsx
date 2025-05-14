@@ -72,6 +72,7 @@ function CardsContent() {
             startIcon={<AddIcon />}
             onClick={dispatchAdding}
             size={isMd ? 'small' : 'medium'}
+            data-cy="add-card-button"
           >
             {t('addCard')}
           </Button>
@@ -95,10 +96,17 @@ function CardsContent() {
                   )
                 }
                 aria-label="card status filter"
+                data-cy="card-status-filter"
               >
-                <MenuItem value="All">{t('all')}</MenuItem>
-                <MenuItem value="Active">{t('active')}</MenuItem>
-                <MenuItem value="Inactive">{t('inactive')}</MenuItem>
+                <MenuItem value="All" data-cy="filter-all">
+                  {t('all')}
+                </MenuItem>
+                <MenuItem value="Active" data-cy="filter-active">
+                  {t('active')}
+                </MenuItem>
+                <MenuItem value="Inactive" data-cy="filter-inactive">
+                  {t('inactive')}
+                </MenuItem>
               </Select>
             </FormControl>
           ) : (
@@ -111,9 +119,15 @@ function CardsContent() {
               aria-label="card status filter"
               size="small"
             >
-              <ToggleButton value="All">{t('all')}</ToggleButton>
-              <ToggleButton value="Active">{t('active')}</ToggleButton>
-              <ToggleButton value="Inactive">{t('inactive')}</ToggleButton>
+              <ToggleButton value="All" data-cy="filter-all">
+                {t('all')}
+              </ToggleButton>
+              <ToggleButton value="Active" data-cy="filter-active">
+                {t('active')}
+              </ToggleButton>
+              <ToggleButton value="Inactive" data-cy="filter-inactive">
+                {t('inactive')}
+              </ToggleButton>
             </ToggleButtonGroup>
           )}
 

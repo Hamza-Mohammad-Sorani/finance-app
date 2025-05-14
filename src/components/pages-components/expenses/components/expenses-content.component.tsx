@@ -72,6 +72,7 @@ function ExpensesContent() {
             startIcon={<AddIcon />}
             onClick={dispatchAdding}
             size={isMd ? 'small' : 'medium'}
+            data-cy="add-expense-button"
           >
             {t('addExpense')}
           </Button>
@@ -95,11 +96,20 @@ function ExpensesContent() {
                   )
                 }
                 aria-label="expense status filter"
+                data-cy="expense-status-filter"
               >
-                <MenuItem value="All">{t('all')}</MenuItem>
-                <MenuItem value="Pending">{t('pending')}</MenuItem>
-                <MenuItem value="Approved">{t('approved')}</MenuItem>
-                <MenuItem value="Rejected">{t('rejected')}</MenuItem>
+                <MenuItem value="All" data-cy="filter-all">
+                  {t('all')}
+                </MenuItem>
+                <MenuItem value="Pending" data-cy="filter-pending">
+                  {t('pending')}
+                </MenuItem>
+                <MenuItem value="Approved" data-cy="filter-approved">
+                  {t('approved')}
+                </MenuItem>
+                <MenuItem value="Rejected" data-cy="filter-rejected">
+                  {t('rejected')}
+                </MenuItem>
               </Select>
             </FormControl>
           ) : (
@@ -112,10 +122,18 @@ function ExpensesContent() {
               aria-label="expense status filter"
               size="small"
             >
-              <ToggleButton value="All">{t('all')}</ToggleButton>
-              <ToggleButton value="Pending">{t('pending')}</ToggleButton>
-              <ToggleButton value="Approved">{t('approved')}</ToggleButton>
-              <ToggleButton value="Rejected">{t('rejected')}</ToggleButton>
+              <ToggleButton value="All" data-cy="filter-all">
+                {t('all')}
+              </ToggleButton>
+              <ToggleButton value="Pending" data-cy="filter-pending">
+                {t('pending')}
+              </ToggleButton>
+              <ToggleButton value="Approved" data-cy="filter-approved">
+                {t('approved')}
+              </ToggleButton>
+              <ToggleButton value="Rejected" data-cy="filter-rejected">
+                {t('rejected')}
+              </ToggleButton>
             </ToggleButtonGroup>
           )}
 

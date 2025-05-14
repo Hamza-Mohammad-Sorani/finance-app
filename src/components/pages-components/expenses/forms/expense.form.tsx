@@ -78,6 +78,7 @@ function ExpenseFormProvider({ open, editItem, onClose, onSubmit }: Props) {
             name="description"
             label={t('description')}
             required
+            data-cy="expense-description"
           />
 
           <RHFTextField
@@ -91,12 +92,14 @@ function ExpenseFormProvider({ open, editItem, onClose, onSubmit }: Props) {
                 startAdornment: '$',
               },
             }}
+            data-cy="expense-amount"
           />
 
           <RHFSelect
             name="status"
             label={t('status')}
             helperText={t('defaultStatusPending')}
+            data-cy="expense-status"
           >
             <MenuItem value="Pending">{t('pending')}</MenuItem>
             <MenuItem value="Approved">{t('approved')}</MenuItem>
@@ -107,7 +110,12 @@ function ExpenseFormProvider({ open, editItem, onClose, onSubmit }: Props) {
 
       <DialogActions sx={{ px: 3, pb: 3 }}>
         <Button onClick={onClose}>{t('cancel')}</Button>
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          data-cy="submit-expense"
+        >
           {editItem ? t('editExpense') : t('addExpense')}
         </Button>
       </DialogActions>

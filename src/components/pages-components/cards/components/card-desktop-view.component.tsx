@@ -56,7 +56,7 @@ function CardsDesktopView() {
         <TableBody>
           {paginatedCards.length > 0 ? (
             paginatedCards.map(card => (
-              <TableRow key={card.id}>
+              <TableRow key={card.id} data-cy="card-item">
                 <TableCell>{card.cardholderName}</TableCell>
                 <TableCell>•••• {card.last4Digits}</TableCell>
                 <TableCell>
@@ -73,6 +73,7 @@ function CardsDesktopView() {
                         size="small"
                         onClick={() => dispatchEditing(card)}
                         aria-label="edit"
+                        data-cy="edit-card"
                       >
                         <EditIcon />
                       </IconButton>
@@ -82,6 +83,7 @@ function CardsDesktopView() {
                         size="small"
                         onClick={() => dispatchDeleting(card.id)}
                         aria-label="delete"
+                        data-cy="delete-card"
                       >
                         <DeleteIcon />
                       </IconButton>
@@ -98,6 +100,11 @@ function CardsDesktopView() {
                         onClick={() => handleStatusToggle(card)}
                         aria-label="toggle status"
                         color={card.status === 'Active' ? 'success' : 'default'}
+                        data-cy={
+                          card.status === 'Active'
+                            ? 'deactivate-card'
+                            : 'activate-card'
+                        }
                       >
                         {card.status === 'Active' ? (
                           <ToggleOffIcon />

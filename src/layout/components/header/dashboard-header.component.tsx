@@ -148,6 +148,7 @@ function DashboardHeader({ sidebarOpen, toggleSidebar }: DashboardHeaderProps) {
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
+            data-cy="sidebar-toggle"
           >
             <MenuIcon />
           </IconButton>
@@ -156,6 +157,7 @@ function DashboardHeader({ sidebarOpen, toggleSidebar }: DashboardHeaderProps) {
             edge="start"
             onClick={toggleSidebar}
             sx={{ mr: 2, display: { xs: 'none', sm: 'flex' } }}
+            data-cy="sidebar-toggle"
           >
             {sidebarOpen ? (
               lang === 'en' ? (
@@ -182,6 +184,7 @@ function DashboardHeader({ sidebarOpen, toggleSidebar }: DashboardHeaderProps) {
                 onClick={toggleLanguage}
                 aria-label="toggle language"
                 sx={{ mx: 1, display: { xs: 'none', sm: 'flex' } }}
+                data-cy="language-switcher"
               >
                 <LanguageIcon />
               </IconButton>
@@ -216,6 +219,7 @@ function DashboardHeader({ sidebarOpen, toggleSidebar }: DashboardHeaderProps) {
             maxWidth: drawerWidth,
           },
         }}
+        data-cy="sidebar"
       >
         {drawer}
       </Drawer>
@@ -237,6 +241,7 @@ function DashboardHeader({ sidebarOpen, toggleSidebar }: DashboardHeaderProps) {
             }),
           },
         }}
+        data-cy="sidebar"
       >
         {drawer}
       </Drawer>

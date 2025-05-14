@@ -33,6 +33,7 @@ function ExpenseDialogs() {
             variant="contained"
             color="error"
             onClick={() => handleDeleteExpense()}
+            data-cy="confirm-delete"
           >
             {t('delete')}
           </Button>
@@ -49,6 +50,7 @@ function ExpenseDialogs() {
             variant="contained"
             color="error"
             onClick={handleRejectExpense}
+            data-cy="confirm-reject"
           >
             {t('reject')}
           </Button>
@@ -61,7 +63,11 @@ function ExpenseDialogs() {
         title={t('approveExpense')}
         content={t('approveExpenseConfirmation')}
         action={
-          <Button variant="contained" onClick={handleApproveExpense}>
+          <Button
+            variant="contained"
+            onClick={handleApproveExpense}
+            data-cy="confirm-approve"
+          >
             {t('approve')}
           </Button>
         }

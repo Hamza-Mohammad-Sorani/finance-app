@@ -77,6 +77,7 @@ function CardFormProvider({ open, editItem, onClose, onSubmit }: Props) {
             name="cardholderName"
             label={t('cardholderName')}
             required
+            data-cy="card-name"
           />
 
           <RHFTextField
@@ -84,12 +85,14 @@ function CardFormProvider({ open, editItem, onClose, onSubmit }: Props) {
             name="last4Digits"
             label={t('last4Digits')}
             required
+            data-cy="card-number"
           />
 
           <RHFSelect
             name="status"
             label={t('status')}
             helperText={t('defaultStatusActive')}
+            data-cy="card-status"
           >
             <MenuItem value="Active">{t('active')}</MenuItem>
             <MenuItem value="Inactive">{t('inactive')}</MenuItem>
@@ -99,7 +102,12 @@ function CardFormProvider({ open, editItem, onClose, onSubmit }: Props) {
 
       <DialogActions sx={{ px: 3, pb: 3 }}>
         <Button onClick={onClose}>{t('cancel')}</Button>
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          data-cy="submit-card"
+        >
           {editItem ? t('editCard') : t('addCard')}
         </Button>
       </DialogActions>

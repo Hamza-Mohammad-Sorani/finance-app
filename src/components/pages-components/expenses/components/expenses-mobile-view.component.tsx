@@ -37,7 +37,7 @@ function ExpensesMobileView() {
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
       {paginatedExpenses.length > 0 ? (
         paginatedExpenses.map(expense => (
-          <Box key={expense.id}>
+          <Box key={expense.id} data-cy="expense-item">
             <Card>
               <CardContent>
                 <Box
